@@ -1,0 +1,72 @@
+<div class="table-container">
+  <p-table
+    [columns]="columns"
+    [value]="records"
+    styleClass="p-datatable-responsive p-datatable-striped app-table"
+    [scrollable]="true"
+    scrollHeight="400px"
+    [loading]="loading"
+    (sortFunction)="customSorting($event)"
+    [customSort]="true"
+  >
+    <ng-template pTemplate="header" let-rowData let-columns>
+      <tr>
+        <ng-container *ngFor="let col of columns">
+          <!-- if in config file sort key has true than icon and sort icon will added -->
+          <th *ngIf="col.sort" [pSortableColumn]="col.field"  [style.min-width]="col.width">
+            {{ col.header }}
+            <p-sortIcon [field]="col.field"></p-sortIcon>
+          </th>
+          <th *ngIf="!col.sort">
+            {{ col.header }}
+          </th>
+        </ng-container>
+      </tr>
+    </ng-template>
+    <ng-template
+      pTemplate="body"
+      let-rowData
+      let-rowIndex="rowIndex"
+      let-columns="columns"
+    >
+      <tr>
+        <ng-container *ngFor="let col of columns; let i = rowData">
+          <td *ngIf="rowIndex !== records.length">
+            {{ col?.rateIcon ? "" : rowData[col.field] }}
+            <i
+              *ngIf="col?.rateIcon"
+              [class]="
+                rowData[col.field]
+                  ? 'pi pi-thumbs-up-fill thumbsUpTab '
+                  : 'pi pi-thumbs-down-fill thumbsDowntab'
+              "
+            ></i>
+          </td>
+        </ng-container>
+      </tr>
+      <div *ngIf="rowIndex + 1 == records.length && showInfiniteLoad "
+      (appIntersectionObserver)="onInterSection()"
+      class="text-white"
+      >
+      </div>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="10" class="text-center">No records found</td>
+      </tr>
+    </ng-template>
+    <!-- <ng-template pTemplate="footer" style="color: white;"> Loading... </ng-template> -->
+  </p-table>
+
+  <div class="table-dropdown" *ngIf="paginator">
+    <p-paginator
+      (onPageChange)="onPageChange($event)"
+      [first]="metadata?.first"
+      [rows]="metadata?.perPage"
+      [totalRecords]="metadata?.totalRecords"
+      [rowsPerPageOptions]="null"
+      [showPageLinks]="true"
+      [showJumpToPageDropdown]="true"
+    ></p-paginator>
+  </div>
+</div>

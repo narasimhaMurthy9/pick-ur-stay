@@ -1,0 +1,72 @@
+@import '../../../../../theme.scss';
+.container{
+    background:  url('../../../../../assets/dry-van\ 1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width: 100vw !important;
+    height: 100vh !important;
+}
+.container_overlay{
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(3px);
+    width: 100vw !important;
+    height: 100vh !important;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+.login_form_container{
+    background: rgb(0 0 0 / 30%);
+    width:400px;
+    padding: 40px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.sign_In{
+    color: $secondaryColor;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0em;
+    text-align: center;
+}
+.logo_div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pgt_service_logo{
+   width: 200px;
+}
+
+.login_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.form_container{
+    margin-top: 30px;
+}
+
+.pricing{
+    color: $primaryButtonColorBackground;
+    font-size: 30px;
+    font-weight: 600;
+}
+::ng-deep{
+    .email_container{
+        .p-inputtext{
+            max-width: 310px !important;
+        }
+    }
+    .password_container{
+        .p-password{
+            width: 100%;
+            max-width: 310px !important;
+        }
+    }
+}

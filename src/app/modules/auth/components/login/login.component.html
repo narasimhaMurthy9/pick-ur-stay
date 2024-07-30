@@ -1,0 +1,70 @@
+<!-- practise on login page -->
+
+<div class="container">
+  <div class="container_overlay">
+    <div class="login_form_container">
+      <div class="overlay_div">
+        <div class="logo_div">
+          <!-- <img
+            class="pgt_service_logo"
+            src="../assets/PGTservices-logo_1 1.png"
+            alt="no img found"
+          /> -->
+          <h3 class="pricing">PRICING ENGINE</h3>
+        </div>
+        <!-- <h2 class="sign_In">Sign in</h2> -->
+        <div class="form_container" >
+          <div class="input-w-full email_container">
+            <app-input-text
+              [className]="'input_text_component'"
+              name="username"
+              [maxlength]="60"
+              [label]="'Email Address'"
+              [requiredStar]="false"
+              [formGroup]="loginForm"
+              [placeholder]="'Enter email address'"
+              [type]="'text'"
+              [error]="
+                inputValidationsErrors(loginForm, 'username')
+                  ? 'Email is required.'
+                  : ''
+              "
+            ></app-input-text>
+          </div>
+          <div class="input-w-full password_container">
+            <div>
+              <app-password
+                [formGroup]="loginForm"
+                name="password"
+                [toggleMask]="true"
+                [placeholder]="'Enter password'"
+                [label]="'Password'"
+                [requiredStar]="false"
+                [error]="
+                  inputValidationsErrors(loginForm, 'password')
+                    ? 'password is required'
+                    : ''
+                "
+              >
+              </app-password>
+            </div>
+          </div>
+          <div class="login_btn">
+            <app-button
+            [type]="'button'"
+            [mainClass]="'button-primary'"   
+            [label]="'Sign In'"
+            [disabled]="loginForm.invalid"
+            [loading]="loadBtn"
+            (submitForm)="loginUser()"
+            >
+            </app-button>
+          </div>
+        </div>
+        
+        
+      </div>
+    </div>
+    <div></div>
+  </div>
+</div>

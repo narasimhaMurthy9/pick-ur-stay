@@ -1,0 +1,17 @@
+<div id="notificaiton" [@list1] class="notification-popup-container">
+    <div 
+        class="header flex justify-content-between"
+        *ngIf="notificationsCount > 0"
+    >
+        <div class="title text-white">
+            Notifications
+        </div>
+    </div>
+    <div class="body">
+        <app-notification-alert 
+            [alertNotificationList]="notificationsList"
+            [alerts]="true"
+            (selectedNotification)="onNotificationSlected($event)"
+        ></app-notification-alert>
+    </div>
+</div>

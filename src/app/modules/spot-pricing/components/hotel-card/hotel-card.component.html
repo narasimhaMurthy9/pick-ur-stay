@@ -1,0 +1,131 @@
+<div class="containerMain ">
+    <div class="m-2">
+                    <h2> Book your stay in {{locationName}}</h2> 
+                    <p class="info">As a family and women-led endeavor, we are honored to be part of the esteemed <b>{{locationName}}</b> Homestays brand, 
+                    operating under the umbrella of Stayflexi. Join us on a delightful journey as we unveil our brand-new, 
+                    luxurious 1, 2, and 3 BHK air-conditioned homestays nestled in a prime locale. With a harmonious fusion 
+                    of comfort and opulence, our expansive apartments offer spacious living and dining areas, ensuring a 
+                    warm welcome for our esteemed guests. Positioned strategically, we are conveniently situated near a 
+                    variety of dining options, cafes, and a supermarket, providing unparalleled accessibility. 
+                    Furthermore, our location is easily accessible from the airport and major highways, making it an ideal 
+                    choice for those seeking centrally located and well-connected accommodations. Come, savor a stay that 
+                    promises both enjoyment and cherished memories</p>
+                    <div class="flex flex-wrap gap-5">
+                        <p><b>PHONE: 6302826454</b></p>
+                        <p><b>Email: vnmurthy18@gmail.com </b></p>
+                    </div>
+                    <h3 class="addFont mt-3">Choose your Hotel</h3>  
+                </div>
+    <div  class="grid">
+        <div class="col-8">
+                
+             
+               <div class="flex flex-wrap gap-5 mt-3">
+                   <div *ngFor="let hotelInfo of showHotelData;">
+                       <div class="card">
+                           <img src={{hotelInfo.hotelImg}} alt="Avatar" style="width:100%" >
+                            <div class="container">
+
+                                <h3 class="m-2"><b>{{hotelInfo.hotelName}}</b></h3> 
+                                <p class="m-2"><b> Status: {{hotelInfo.status}}</b></p> 
+                                <p></p>
+                                <p class="info">
+                                    {{hotelInfo.about}}
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap priceBlock ">
+                                <p>Standard Plan</p>
+                                <p>RS: {{hotelInfo.price}}</p>
+                            </div>
+                            <div class="flex flex-wrap gap-5 mt-2" style="padding: 0px 45px;">
+                                <div style="width: 150px !important;">
+                                    <app-input-text
+                                        name="NumOfRooms"
+                                        [label]="'Number of rooms'"
+                                        [formGroup]="addRoomsForm"
+                                        [placeholder]="'0'"
+                                        [type]="'number'"
+        
+                                    ></app-input-text>
+                                </div>
+                                    <div style="margin-top: 30px;">
+                                        <app-button
+                                        [type]="'button'"
+                                        [mainClass]="'button-hotel-search'"
+                                        (click)="AddRoom(locationName,hotelInfo.id)"
+                                        [label]="'ADD'"
+                                        >
+                                         </app-button>
+                                    </div>
+                            </div>
+                         </div>
+                   </div>
+               </div>
+        </div>
+        <div class="col-4 ">
+            <div style="position: sticky; top: 0;">
+                <div class="priceAndCheck addFont">
+                    <div *ngIf="showPrice">
+                        <h2><b>RS. {{showPrice}}.00</b></h2>
+                        <h4>Rs. {{showPriceWithTax}}.00 total including taxes and fees</h4>
+                    </div>
+                   
+                    <div class="flex flex-wrap justify-content-around mt-5 mb-3 ">
+                        <div class="flex flex-column">
+                            <span>
+                                Check In
+                            </span>
+                            <span>{{checkIn | date}}</span>
+                        </div>
+                        <div class="flex flex-column">
+                            <span>
+                                Check Out
+                            </span>
+                            <span>{{checkOut | date}}</span>
+                        </div>
+                        
+                     
+                    </div>
+                </div>
+    
+                <div *ngIf="showPrice">
+                    <div class="flex justify-content-center mt-5 mb-3">
+                        <h2 ><b>{{selectedHotel}}</b></h2>
+                    </div>
+                     
+                     <div class="priceAndCheck addFont">
+                        <div class="flex justify-content-around">
+                            <p>Room price </p>
+                        <span>{{showPrice}}</span>
+                        </div>
+                        
+                        <div class="flex justify-content-around">
+                            <p>Tax </p>
+                        <span class="ml-5">234</span>
+                        </div>
+                        
+                        <div class="flex justify-content-around">
+                            <p>Total price </p>
+                            <span class="ml-2">{{showPriceWithTax}}</span>
+                        </div>
+                        <div style="margin-top: 30px;" class="flex justify-content-center">
+                            <app-button
+                            [type]="'button'"
+                            [mainClass]="'button-hotel-search'"
+                            (click)="bookNow()"
+                            [label]="'Book Now'"
+                            >
+                             </app-button>
+                        </div>
+                     </div>
+                    
+                   
+                </div>
+         
+            </div>
+          
+        </div>
+    </div>
+  
+  
+ </div>

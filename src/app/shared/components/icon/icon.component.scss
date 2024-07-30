@@ -1,0 +1,25 @@
+@import '../../../../theme.scss';
+
+i{
+    color: $bellIconColor;
+}
+
+.icon{
+       &:hover{
+           color: #ffffff;
+       }
+
+}
+
+.white-icon{
+    color: #ffffff;
+}
+
+
+
+::ng-deep{
+    .p-badge {
+        background: $badgeColor;
+        color: #ffffff;
+    }
+}

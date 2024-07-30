@@ -1,0 +1,37 @@
+<div class="containr" *ngFor="let notification of alertNotificationList; index as i ">
+    <div 
+        class="alert-container flex align-items-start cursor-pointer" 
+        (click)="selectNotificaton(notification)"
+    >
+        <div class="">
+            <app-icon
+                iconName="fa fa-bell-o text-6xl"
+            ></app-icon>
+        </div>
+        <div class="right flex flex-column">
+            <ng-container *ngIf = "alerts">
+                <div class="notification-text text-white">
+                    {{notification.carrierName}} Carrier has been awaiting for validation.
+                </div>
+            </ng-container>
+            <ng-container
+                *ngIf="page"
+            >
+                <div class="full-notification-text">
+                    {{notification.notification}}
+                </div>
+            </ng-container>
+            <div class="recieved-time text-white">
+                <span>{{notification.recievedTime}}</span>
+            </div>
+        </div>
+        <div class="close cursor-pointer" *ngIf="alerts">
+            <app-icon
+                iconName="pi pi-times"
+                [disableBadge]="true"
+                (click)="onClose(notification)"
+                [hover]="true"
+            ></app-icon>
+        </div>
+    </div>
+</div>

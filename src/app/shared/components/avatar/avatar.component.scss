@@ -1,0 +1,25 @@
+@import '../../../../theme.scss';
+
+.no-image{
+    color: $whiteColor;
+}
+
+::ng-deep {
+
+    .no-image{   
+        .p-avatar {
+            background-color: $avatarBG;
+            border-radius: 6px;
+            width: 40px;
+            height: 40px;
+            padding-bottom: 2px;
+        }
+
+        .p-avatar.p-avatar-circle {
+            border-radius: 50%;
+            overflow: hidden;
+            font-size: 20px;
+        }
+
+    }
+}

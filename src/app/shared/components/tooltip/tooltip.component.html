@@ -1,0 +1,18 @@
+<div class="flex align-items-center justify-content-center notDataFound">  
+  <span class="toolTipSymbol" *ngIf="isEmpty">-</span>
+  <span [pTooltip]="toolTipMessage" [tooltipPosition]="tooltipPosition" [escape]="false">
+    <span>
+      <i
+        class="infoIcon"
+        [ngClass]="
+          isRates
+            ? 'pi pi-info-circle'
+            : isLink
+            ? 'pi pi-external-link link-icon'
+            : ''
+        "
+        (click)="onClick(isLink)"
+      ></i>
+    </span>
+  </span>
+</div>

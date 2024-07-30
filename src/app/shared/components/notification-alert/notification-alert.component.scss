@@ -1,0 +1,53 @@
+@import '../../../../theme.scss';
+
+.alert-container{
+    gap: 30px;
+    border-bottom: 0.2px solid #DBDBDB;
+    padding: 16px 16px 10px 18px ;
+    background-color: $topNavBackgroundColor;
+
+    &:hover{
+        background-color: #272626;
+    }
+}
+
+.right{
+    gap: 10px;
+}
+
+.notification-text{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.full-notification-text{
+    color: #9D9D9D;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 36px; /* 150% */
+}
+
+.recieved-time{
+    font-size: 10px;
+    font-weight: 300;
+    line-height: 13px;
+    letter-spacing: 0em;
+    text-align: left;
+    
+    span{
+        color: #9D9D9D;
+
+    }
+
+
+}
+
+.containr:nth-last-child(1){
+    .alert-container{
+        border-bottom: none;
+    }
+}

@@ -1,0 +1,23 @@
+@import "../../../../theme.scss";
+
+.infoIcon {
+  color: red !important;
+  font-size: 0.8rem;
+}
+
+.toolTipSymbol {
+  margin-right: 10px;
+  color: $fontColor;
+}
+
+.link-icon {
+  margin-top: 9px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+::ng-deep {
+  .p-tooltip {
+    max-width: 250px;
+  }
+}

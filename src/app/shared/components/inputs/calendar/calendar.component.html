@@ -1,0 +1,41 @@
+<div class="date-input">
+    <div
+        [formGroup]="formGroup"
+    >
+        <div>
+            <div *ngIf="label" class=" mb-1 pl-0">
+                <label class="labelNames"
+                >{{ label }}<sup *ngIf="requiredStar" class="requiredStar">*</sup>
+                </label>
+            </div>
+            <p-calendar
+                [formControlName]="name"
+                [showIcon]="showIcon"
+                [icon]="iconName"
+                [placeholder]="placeholder"
+                [selectionMode]="selectionMode"
+                [disabled]="disabled"
+                [dateFormat]="dateFormat"
+                [rangeSeparator]="rangeSeparator"
+                [multipleSeparator]="multipleSeparator"
+                [timeOnly]="timeOnly"
+                [required]="requiredStar"
+                [readonlyInput]="true"
+                [hourFormat]="hourFormat"
+                [showClear]="showClear"
+                [maxDateCount]="maxDateCount"
+                [showButtonBar]="showButtonBar"
+                [showTime]="dateAndTime"
+                [minDate]="minDate"
+                [maxDate]="maxDate"
+                (onSelect)="onDateSelect($event)"
+                
+            ></p-calendar>
+        </div>
+        <!-- show error message  -->
+    <div>
+        <small class="p-error-invalid">{{ error }}</small>
+        <small *ngIf="!error" class="p-error-invalid"><br /></small>
+      </div>
+    </div>
+</div>

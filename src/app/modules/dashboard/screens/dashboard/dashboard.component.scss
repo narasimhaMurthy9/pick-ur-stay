@@ -1,0 +1,18 @@
+
+@import '../../../../../theme.scss';
+.dashboardContianer{
+    height: 100vh;
+    width: 100vw;
+    background-color:$bodyBackgroundColor;
+    
+}
+.top-nav{
+    position: fixed;
+}
+.content{
+    height: 100%;
+    position: relative;
+    top: 80px;
+    max-height: calc(100% - 80px);
+    overflow: auto;
+}

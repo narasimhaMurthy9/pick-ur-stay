@@ -1,0 +1,324 @@
+@import './colors.scss';
+
+// INPUT TEXT
+
+.p-inputtext {
+    background-color: $whiteColor !important;
+    font: 400 16px/1.5 $font-family !important;
+    color: $inputTextColor !important;
+    width: 100%;
+    height: 36.5px;
+    // padding: 0.65rem !important;
+    border: 1px solid $inputBorderColor;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s,
+      box-shadow 0.2s !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    border-radius: 3px !important;
+  }
+  .p-inputtext:enabled:hover {
+    border-color: $inputBorderColor !important;
+  }
+  
+  .p-inputtext:enabled:focus {
+    box-shadow: none !important;
+    border-color: $inputBorderColor !important;
+  }
+  .requiredStar {
+    color: $activeColor;
+    font-weight: bolder;
+    font-size: 16px;
+  }
+  
+  .labelNames{
+    color: #000000;
+    font: 400 16px/1.5 $font-family;
+    
+}
+
+.p-error-invalid{
+    color: $errorFont;
+    margin-top: 5px;
+}
+
+// INPUT BUTTON
+.input_button_component {
+    .button-download {
+      .p-button {
+        padding: 0.5rem 1rem !important;
+      }
+    }
+    .button-primary {
+      margin: 0rem 0.5rem 0rem 0.3rem;
+  
+      .p-button {
+        color: $primaryButtonColorFont;
+        background: $primaryButtonColorBackground;
+        border: none;
+        border-radius: 5px;
+        height: 36.5px;
+        font: 600 14px/1.5 $font-family;
+      }
+  
+      .p-button:enabled:hover,
+      .p-button:enabled:active {
+        color: $primaryButtonColorFont;
+        background: $primaryButtonColorBackground;
+        border: none;
+      }
+  
+      .p-button:focus {
+        box-shadow: none;
+      }
+      @media (max-width: 1350px) {
+        .p-button {
+          color: $primaryButtonColorFont;
+          background: $primaryButtonColorBackground;
+          border: none;
+        }
+      }
+    }
+
+    .button-hotel-search {
+      margin: 0rem 0.5rem 0rem 0.3rem;
+  
+      .p-button {
+        color: #000000;
+        background: #FEDB11;
+        border: 1px solid #000000  ;
+        border-radius: 25px;
+        height: 36.5px;
+        font: 600 14px/1.5 $font-family;
+      }
+  
+      .p-button:enabled:hover,
+      .p-button:enabled:active {
+        color: #000000;
+        background:  #FEDB11;
+        border: 1px solid #000000  ;
+      }
+  
+      .p-button:focus {
+        box-shadow: none;
+      }
+      @media (max-width: 1350px) {
+        .p-button {
+          color:#000000;
+          background: #FEDB11;
+          order: 1px solid #000000  ;
+        }
+      }
+    }
+
+    .button-hotel-login {
+      margin: 0rem 0.5rem 0rem 0.3rem;
+  
+      .p-button {
+        color: #000000;
+        background: white;
+        border: 1px solid #000000  ;
+        border-radius: 25px;
+        height: 36.5px;
+        font: 600 14px/1.5 $font-family;
+      }
+  
+      .p-button:enabled:hover,
+      .p-button:enabled:active {
+        color: #000000;
+        background:  white;
+        border: 1px solid #000000  ;
+      }
+  
+      .p-button:focus {
+        box-shadow: none;
+      }
+    
+    }
+    .button-cancel {
+      margin: 0rem 0.5rem 0rem 0.3rem;
+  
+      .p-button {
+        color: $whiteColor;
+        background: $cancelBackground;
+        border: 1px solid $primaryButtonColorBackground;
+        border-radius: 5px;
+        height: 36.5px;
+        font: 600 14px/1.5 $font-family;
+        
+      }
+  
+      .p-button:enabled:hover,
+      .p-button:enabled:active {
+        color: $whiteColor;
+        background: $cancelBackground;
+        border:1px solid $primaryButtonColorBackground;
+      }
+  
+      .p-button:focus {
+        box-shadow: none;
+      }
+      @media (max-width: 1350px) {
+        .p-button {
+          color: $whiteColor;
+          background: $cancelBackground;
+          border:1px solid $primaryButtonColorBackground;
+        }
+      }
+    }
+   
+    .button-validate {
+      margin: 0rem 0.5rem 0rem 0.3rem;
+  
+      .p-button {
+        color: $fontBlackColor;
+        background: $thumbsUpFontColor;
+        border: none;
+        border-radius: 5px;
+        height: 36.5px;
+        font: 600 14px/1.5 $font-family;
+      }
+  
+      .p-button:enabled:hover,
+      .p-button:enabled:active {
+        color: $fontBlackColor;
+        background: $thumbsUpFontColor;
+        border: none;
+      }
+  
+      .p-button:focus {
+        box-shadow: none;
+      }
+      @media (max-width: 1350px) {
+        .p-button {
+          color: $fontBlackColor;
+        background: $thumbsUpFontColor;
+          border: none;
+        }
+      }
+    }
+
+    .button-approval {
+      .p-button {
+        color: $thumbsUpFontColor;
+        background: $cancelBackground;
+        border: 1px solid $thumbsUpFontColor;
+        border-radius: 5px;
+        height: 36.5px;
+        font: 600 16px/1.5 $font-family;
+        
+      }
+  
+      .p-button:enabled:hover,
+      .p-button:enabled:active {
+        color: $thumbsUpFontColor;
+        background: $cancelBackground;
+        border:1px solid $thumbsUpFontColor;
+      }
+  
+      .p-button:focus {
+        box-shadow: none;
+      }
+      @media (max-width: 1350px) {
+        .p-button {
+          color: $thumbsUpFontColor;
+          background: $cancelBackground;
+          border:1px solid $thumbsUpFontColor;
+        }
+      }
+    }
+
+    .button-approvalTwo {
+      margin: 0rem 0.5rem 0rem 0.3rem;
+  
+      .p-button {
+        color: $fontBlackColor;
+        background: $thumbsUpFontColor;
+        border: none;
+        border-radius: 5px;
+        height: 36.5px;
+        font: 600 14px/1.5 $font-family;
+      }
+  
+      .p-button:enabled:hover,
+      .p-button:enabled:active {
+        color: $fontBlackColor;
+        background: $thumbsUpFontColor;
+        border: none;
+      }
+  
+      .p-button:focus {
+        box-shadow: none;
+      }
+      @media (max-width: 1350px) {
+        .p-button {
+          color: $fontBlackColor;
+          background: $thumbsUpFontColor;
+          border: none;
+        }
+      }
+    }
+ 
+    .button-underline {
+      margin: 0rem 0.5rem 0rem 0.3rem;
+  
+      .p-button {
+        color: $primaryButtonColorFont;
+        background: none;
+        border: none;
+        font: 600 14px/1.5 $font-family;
+      }
+  
+      .p-button:enabled:hover,
+      .p-button:enabled:active {
+        color: $primaryButtonColorFont;
+        background: none;
+        border: none;
+      }
+  
+      .p-button:focus {
+        box-shadow: none;
+      }
+      @media (max-width: 1350px) {
+        .p-button {
+          color: $primaryButtonColorFont;
+          background: none;
+          border: none;
+        }
+      }
+    }
+
+    
+  }
+
+  .thumbsUp{
+    font-size: 40px;
+    color: $thumbsUpFontColor;
+}
+.thumbsDown{
+    font-size: 40px;
+    color: $thumbsDownFontColor;
+}
+
+.p-dialog .p-dialog-header .p-dialog-header-icon{
+ color: $whiteColor !important; 
+ border: none !important;
+}
+
+.p-dialog .p-dialog-header .p-dialog-header-icon:enabled:hover{
+  color: $whiteColor !important;
+  border: none !important;
+  background:  $cancelBackground !important;
+}
+
+// toaster
+#toast-container>.toast-success {
+  background-color: $topNavBackgroundColor !important;
+  // background-color: #292828 !important;
+  border: .1px solid #7a7979 !important;
+  color: $whiteColor;
+  font: 600 15px/1.5 $font-family;
+  border-radius: 5px !important;
+  box-shadow: none !important;
+  // width: 150px;
+}

@@ -1,0 +1,129 @@
+@import '../../../../theme.scss';
+
+
+// Expanded row styles
+.expanded-row{
+    // width: 500px;
+}
+
+.detail-header{
+    margin-bottom: 8px;
+    color: #898989;
+    font-size: 18px;
+}
+
+.detail-text{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.phone{
+    text-decoration: underline;
+}
+
+// origin-destination
+.circle{
+    width: 10px;
+    height: 10px;
+    border: 1px solid $errorFont;
+    border-radius: 50%;
+}
+
+.dashed-line{
+    height: 45px;
+    width: 0px;
+    border-right: 2px dashed  $errorFont;
+}
+
+::ng-deep{
+    .table-container{
+        .p-datatable{
+            .p-datatable-thead > tr > th {
+                text-align: left;
+                padding: 1rem 1rem;
+                border-width: 0 0 0 0;
+                // border: 0px 1px 1px 0px solid $tableBorderColor;
+                border-right: 1px solid $tableBorderColor;
+                border-bottom: 1px solid $tableBorderColor;
+                font-weight: 700;
+                color: $whiteColor;
+                background: $tableBackgroundColor;
+                transition: box-shadow 0.2s;
+            }
+
+            .p-datatable-tbody > tr {
+                background: $tableBackgroundColor;
+                color: $whiteColor;
+                transition: box-shadow 0.2s;
+            }
+
+            .p-datatable-tbody > tr > td {
+                text-align: left;
+                border-width: 0px 1px 1px 0px;
+                border-color: $tableBorderColor;
+                padding: 1rem 1rem;
+            }
+        }
+
+        .p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even) {
+            background: $tableBackgroundColor;
+        }
+
+        .p-datatable .p-sortable-column:not(.p-highlight):hover {
+            background: $topNavBackgroundColor;
+            color: $whiteColor;
+        }
+
+        .p-datatable .p-sortable-column .p-sortable-column-icon {
+            color: $whiteColor;
+            margin-left: 0.5rem;
+
+            &:hover{
+                color: $whiteColor;
+            }
+        }
+
+        .p-datatable .p-sortable-column.p-highlight:hover {
+            background: $tableBackgroundColor;
+            color: $whiteColor;
+        }
+
+        .p-datatable .p-sortable-column:focus {
+            box-shadow: none;
+            outline: 0 none;
+        }
+
+        .p-datatable-wrapper::-webkit-scrollbar{
+            width: 4px;
+            display: none;
+        }
+        
+    }
+
+    // row expansion toggle icon
+    .p-button.p-button-icon-only.p-button-rounded {
+        background: $whiteColor;
+        height: 18px;
+        width: 18px;
+        padding: 2px 2px 0px 2px;
+        border-radius: 50%;
+
+        .pi{
+            font-size: 7px;
+            line-height: 0px;
+        }
+    }
+
+    .p-button:focus {
+        box-shadow: none;
+    }
+
+    .p-button.p-button-text.p-button-plain {
+        color: $fontBlackColor;
+    }
+
+    .p-button.p-button-icon-only.p-button-rounded .pi {
+        font-size: 11px;
+        font-weight: 900;
+    }
+}

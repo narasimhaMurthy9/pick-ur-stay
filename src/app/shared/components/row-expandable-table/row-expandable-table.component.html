@@ -1,0 +1,99 @@
+<div class="table-container">
+    <p-table
+        [columns]="columns"
+        [value]="records"
+        dataKey="id"
+        styleClass="p-datatable-responsive p-datatable-striped app-table"
+        [scrollable]="true"
+        scrollHeight="250px"
+    >
+        <ng-template pTemplate="header" let-rowData let-columns>
+            <tr>
+                <th *ngFor="let col of columns" class="text-center" [pSortableColumn]="col.field">
+                    {{col.header}}
+                    <p-sortIcon [field]="col.field"></p-sortIcon>
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-i="rowIndex" let-columns="columns" let-expanded="expanded">
+            <tr>
+                <td *ngFor="let col of columns" >
+                   <div class="flex justify-content-center align-items-center">
+                        
+                        <div class="mr-3 row-expansion-toggler" *ngIf="col?.field === 'age' && expandable">
+                            <button type="button" pButton pRipple [pRowToggler]="rowData" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-up' : 'pi pi-chevron-down'"></button>
+                        </div>       
+                        <div>                      
+                            <span *ngIf="col?.field === 'rate'">{{rowData[col.field] | currency:'USD'}}</span>
+							<span *ngIf="col?.field !== 'rate'">{{rowData[col.field]}}</span><span *ngIf="col?.field === 'age'">hrs</span>
+                        </div>       
+    
+                   </div>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="rowexpansion" let-records let-rowData let-i="rowIndex">
+            <tr>
+                <td colspan="7">
+                    <div class="p-2 expanded-row flex align-items justify-content-around " >
+                       <div class="location">
+                            <div class="detail-header">
+                                <span>Location:</span>
+                            </div>
+                            <div class="flex">
+								<div class="mt-2 flex flex-column align-items-center" >
+									<div class="circle"></div>
+									<div class="dashed-line"></div>
+									<div class="circle"></div>
+								</div>
+                            	<div class="location-details ml-1 flex flex-column row-gap-5">
+	                                <div class="detail-text">
+	                                    {{records.origin}}
+	                                </div>
+	                                <div class="detail-text">
+	                                    {{records.destination}}
+	                                </div>
+	                            </div>
+                            </div>
+                       </div>
+                       <div class="trip-details">
+							<div class="detail-header">
+								Trip:
+							</div>
+                            <div class="pickup">
+                                <div><span class="detail-header">PICKUP:</span> <span class="detail-text"> {{records.pickUp | date : "dd/MM" }} </span></div>
+                                <div><span class="detail-header">TRIP:</span> <span class="detail-text"> {{records.trip}}</span></div>
+                                <div><span class="detail-header">RATE/mi:</span> <span class="detail-text"> {{records.rate | currency:'USD'}}</span></div>
+                            </div>
+                       </div>
+                       <div class="company">
+                            <div class="detail-header">
+                                Company:
+                            </div>
+                            <div class="">
+                                <div class="detail-text">
+                                    {{records.company}}
+                                </div>
+                                <div class="detail-text phone">
+                                    {{records.phone}}
+                                </div>
+                            </div>
+                       </div>
+                       <div class="equipment">
+							<div class="detail-header">
+								Equipment
+							</div>
+							<div class="">
+								<div class="detail-text">{{records.weight}} lbs</div>
+								<div class="detail-text">{{records.length}} ft</div>
+							</div>
+                       </div>
+                    </div>
+                </td>
+            </tr>
+            <div class="text-white"  *ngIf="i+1 == records.length" (appIntersectionObserver)="onIntersection()">
+                Loading....
+             </div>
+        </ng-template>
+    </p-table>
+</div>

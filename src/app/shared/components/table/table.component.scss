@@ -1,0 +1,172 @@
+@import "../../../../theme.scss";
+.text-white{
+  height: 10px;
+}
+::ng-deep {
+  .table-container {
+    .p-datatable .p-datatable-thead > tr > th {
+      background-color: $inputBackgroundSpotPricing !important;
+      color: $whiteColor !important ;
+      font: 600 16px/1.5 $font-family;
+      border: none !important;
+      padding-right: 0px;
+    }
+    .p-datatable .p-datatable-thead > tr > th :hover {
+      background-color: $inputBackgroundSpotPricing !important;
+      color: $whiteColor !important ;
+      font: 600 16px/1.5 $font-family;
+    }
+    .p-datatable>.p-datatable-wrapper::-webkit-scrollbar {
+      width: 4px; /* Adjust the width for vertical scrollbar */
+      height: 4px; /* Adjust the height for horizontal scrollbar */
+    }
+    
+    .p-datatable>.p-datatable-wrapper::-webkit-scrollbar-thumb {
+      background-color: $whiteColor; /* Scrollbar thumb color */
+    }
+    
+    .p-datatable>.p-datatable-wrapper::-webkit-scrollbar-track {
+      background-color: transparent; /* Scrollbar track color */
+    }
+    
+    .p-datatable>.p-datatable-wrapper::-webkit-scrollbar-corner {
+      background-color: $inputBackgroundSpotPricing; /* Corner color */
+    }
+    .p-datatable .p-datatable-tbody > tr {
+      background: $bodyBackgroundColor !important;
+      color: $whiteColor !important;
+      font: 400 14px/1 $font-family;
+    }
+
+    .p-datatable .p-datatable-tbody > tr > td {
+      text-align: left;
+      border: 1px solid $inputBackgroundSpotPricing;
+      border-width: 0px 0px 1px 0px;
+      padding: 1rem 1rem;
+    }
+    .p-datatable .p-datatable-tbody > tr > td:first-child {
+      border-left: 1px solid $inputBackgroundSpotPricing;
+    }
+    .p-datatable .p-datatable-tbody > tr > td:last-child {
+      border-right: 1px solid $inputBackgroundSpotPricing;
+    }
+    .p-datatable .p-sortable-column:hover {
+      background: $inputBackgroundSpotPricing !important;
+      color: $whiteColor !important;
+    }
+    .p-datatable .p-sortable-column.p-highlight:hover {
+      background: $inputBackgroundSpotPricing !important;
+      color: $whiteColor !important ;
+    }
+    .p-datatable .p-sortable-column .p-sortable-column-icon {
+      background: $inputBackgroundSpotPricing !important;
+      color: $primaryButtonColorBackground !important ;
+      height: 0.7rem;
+      margin-left: 0.5rem;
+    }
+    .p-datatable .p-sortable-column:focus {
+      box-shadow: inset 0 0 0 0.1rem $whiteColor;
+    }
+
+    .p-datatable .p-datatable-footer {
+      background: none !important;
+      color: $whiteColor;
+      border: none !important;
+      border-width: 0 0 1px 0;
+      padding: 1rem 1rem;
+      font-weight: 600;
+    }
+    .p-paginator {
+      border: none;
+      justify-content: end;
+      padding: 0;
+      background: $bodyBackgroundColor;
+      margin-top: 15px;
+    }
+
+    .p-datatable .p-paginator-bottom {
+      margin-top: 10px;
+    }
+
+    .p-paginator .p-paginator-first,
+    .p-paginator .p-paginator-prev,
+    .p-paginator .p-paginator-next,
+    .p-paginator .p-paginator-last,
+    .p-paginator .p-paginator-pages .p-paginator-page {
+      color: $whiteColor;
+      background: $topNavBackgroundColor;
+      min-width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    .p-paginator .p-paginator-pages .p-paginator-page:not(.p-highlight):hover,
+    .p-paginator .p-paginator-first:not(.p-disabled):not(.p-highlight):hover,
+    .p-paginator .p-paginator-prev:not(.p-disabled):not(.p-highlight):hover,
+    .p-paginator .p-paginator-next:not(.p-disabled):not(.p-highlight):hover,
+    .p-paginator .p-paginator-last:not(.p-disabled):not(.p-highlight):hover {
+      background: $paginatorHover;
+      color: $whiteColor;
+    }
+
+    .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+      background: $badgeColor;
+      color: $whiteColor;
+    }
+
+    .p-link:focus {
+      box-shadow: none;
+    }
+    .p-datatable .p-sortable-column:focus {
+      box-shadow: none !important;
+  }
+  }
+
+  // .table-dropdown {
+  //   .p-dropdown {
+  //     background: $topNavBackgroundColor;
+  //     border: none;
+  //     transition: background-color 0.2s, color 0.2s, border-color 0.2s,
+  //       box-shadow 0.2s;
+  //     border-radius: 6px;
+  //     height: 2.5rem;
+
+  //     &:not(.p-disabled).p-focus {
+  //       box-shadow: none;
+  //     }
+  //   }
+
+  //   .p-inputtext {
+  //     background-color: $topNavBackgroundColor !important;
+  //     color: $whiteColor !important;
+  //     padding: 8px 0px 8px 15px !important;
+  //     border-radius: 10px !important;
+  //   }
+   
+  // }
+
+  // .table-container .p-datatable .p-datatable-thead > tr > th  {
+  //   background-color: #363636 !important;
+  //   color: #cc1f3a !important;
+  //   font: 600 12px/1.5 "Open Sans", sans-serif;
+  // }
+  .table-container .p-datatable .p-datatable-thead > tr > th :hover {
+    background-color: #363636 !important;
+    color: #cc1f3a !important;
+    font: 600 12px/1.5 "Open Sans", sans-serif;
+  }
+
+  .table-container .p-datatable .p-sortable-column .p-sortable-column-icon{
+    height: 0.6rem !important;
+  }
+}
+
+.table-container {
+  .thumbsUpTab {
+    font-size: 1rem;
+    color: $thumbsUpFontColor;
+  }
+  .thumbsDowntab {
+    font-size: 1rem;
+    color: $thumbsDownFontColor;
+  }
+}

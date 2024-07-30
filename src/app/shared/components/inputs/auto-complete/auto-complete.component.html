@@ -1,0 +1,54 @@
+<div  >
+    <div class="grid mt-0">
+      <div *ngIf="label" class="col-12 mb-1  formFields pl-0 py-0">
+        <label class="labelNames">
+          {{ label }}<sup *ngIf="requiredStar" class="requiredStar">*</sup>
+        </label>
+      </div>
+      
+    </div>
+    <div class="col-12 p-0 autoCompleteContainer">
+      <form [formGroup]="formGroup" >
+        <p-autoComplete
+          [formControlName]="name"
+          (keypress)="spaceTrim($event)"
+          (keyup)="onChangeInput($event)"
+          [suggestions]="suggestions"
+          (completeMethod)="filtersuggestions($event)"
+          field="name"
+          [delay]="300"
+          [showEmptyMessage]="true"
+          [emptyMessage]="emptyMessage"
+          [placeholder]="placeholder"
+          [disabled]="isDisabled"
+          [required]="isRequired"
+          [maxlength]="maxlength"
+          [showClear]="showClear"
+          [dropdown]="false"
+          [(ngModel)]="selectedOption"
+          (onSelect)="selectedSuggestion($event)"
+          (onClear)="clearField()"
+          [minLength]="3"
+        >
+      <!-- item template allows displaying custom content inside the suggestions panel -->
+      <ng-template let-option pTemplate="item">      
+              <div>
+                {{ option.city }}, {{option.state}}
+              </div> 
+            <!--  **if zipCode came into existance then**  -->
+            <!-- <div>
+              {{ option.city }}, {{option.state}}, {{option.zipCode}}
+            </div> -->
+      </ng-template>
+      
+      </p-autoComplete>
+      </form>
+    </div>
+  
+    <!-- show error message  -->
+    <div>
+      <small class="p-error-invalid">{{ error }}</small>
+      <small *ngIf="!error" class="p-error-invalid"><br /></small>
+    </div>
+  </div>
+  

@@ -1,0 +1,17 @@
+image: alpine:latest
+
+deploy_to_stage:
+  stage: deploy
+  before_script:
+  - 'command -v ssh-agent >/dev/null || ( apk add --update openssh )' 
+  - eval $(ssh-agent -s)
+  - echo "$STAGE_VM_SSH_KEY" | tr -d '\r' | ssh-add -
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - ssh-keyscan $STAGE_VM_IP >> ~/.ssh/known_hosts
+  - chmod 644 ~/.ssh/known_hosts
+  script:
+  - ssh $SSH_USER@$STAGE_VM_IP "cd ~/pgt/ && sh deploy-ui.sh"
+
+  only:
+  - staging

@@ -1,0 +1,80 @@
+<div class="searchContainer">
+
+    <div class="flex justify-content-center">
+        <div class="flex flex-wrap gap-3 justify-content-center ">
+        <div class="search_field">
+            <app-dropdown
+            [formGroup]="searchHotelsForm"
+            name="location"
+            [options]="LocationsData"
+            [placeholder]="'Select location '"
+            [label]="'Location'"
+            [requiredStar]="true"
+            [error]="
+              inputValidationsErrors(searchHotelsForm, 'location')
+                ? 'required'
+                : ''
+            "
+            (onChangeHappened)="searchLocation($event)"
+            ></app-dropdown>
+        </div>
+    
+        <div class="checkIn_field">
+            <app-calendar
+                [formGroup]="searchHotelsForm"
+                [name]="'checkIn'"
+                label="Check In - Check Out "
+                [requiredStar]="true"
+                [showIcon]="true"
+                [placeholder]="'Select date'"
+                [minDate]="checkInMinDate"
+                [maxDate]="maxDate"
+                [selectionMode]="'range'"
+                [showClear]="true"
+                [requiredStar]="true"
+                [error]="
+                  inputValidationsErrors(searchHotelsForm, 'checkIn')
+                    ? 'required'
+                    : dateValidate(searchHotelsForm) ? 'please select Checkout date' : ' '
+                "
+              ></app-calendar>
+        </div>
+    
+        <!-- <div style="width: 280px !important;">
+            <app-input-text
+                name="NumOfGuests"
+                [maxlength]="60"
+                [label]="'Number Of Guests'"
+                [requiredStar]="true"
+                [formGroup]="searchHotelsForm"
+                [placeholder]="'Enter number of guests'"
+                [type]="'number'"
+                [error]="
+                  inputValidationsErrors(searchHotelsForm, 'NumOfGuests')
+                    ? 'Number of guests is required'
+                    : ''
+                "
+            ></app-input-text>
+        </div> -->
+
+    </div>
+
+</div>
+<div class="flex justify-content-end">
+    <app-button
+      [type]="'button'"
+      [mainClass]="'button-hotel-search'"
+      (click)="onRateSearch()"
+      [disabled]="searchHotelsForm.invalid"
+      [label]="'Search Accommodation'"
+    >
+    </app-button>
+  </div>
+  
+</div>
+
+
+<div *ngIf="showHotelsData">
+    <app-hotel-card [selectedLocation]="sendLocationData" [sendCheckIn]="sendCheckIn"></app-hotel-card>
+</div>
+

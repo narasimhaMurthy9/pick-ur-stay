@@ -1,0 +1,65 @@
+@import "../../../../../theme.scss";
+
+::ng-deep {
+  .autoCompleteContainer {
+    .p-inputtext {
+      min-width: 280px !important;
+    }
+    .p-autocomplete-panel {
+      margin-top: 1px;
+      width: 280px !important;
+      background: #141414;
+      border-radius: 0px;
+      border: 0.1px solid $inputBorderColor !important;
+      border-color: #363636 !important;
+
+      .p-autocomplete-items {
+        padding: 0.75rem 0;
+        // border: 1px solid $inputBorderColor;
+
+        .p-autocomplete-item {
+          color: $whiteColor;
+
+          &:hover {
+            background: #363636 !important;
+            border: none !important;
+          }
+        }
+
+        .p-autocomplete-empty-message {
+          padding: 0.75rem 1.25rem;
+          color: #fdfdfd;
+          background: transparent;
+        }
+      }
+    }
+
+    .p-autocomplete-panel .p-autocomplete-items {
+      padding: 0px;
+    }
+
+    // auto-complete scroller
+    .p-autocomplete-panel::-webkit-scrollbar {
+      width: 4px;
+      // display: none;
+    }
+
+    .p-autocomplete-panel::-webkit-scrollbar-thumb {
+      background-color: #fff;
+    }
+
+    .p-autocomplete-panel::-webkit-scrollbar-track {
+      background-color: #323232;
+    }
+
+    .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item {
+      border-bottom: 0.1px solid #363636;
+    }
+
+    .p-autocomplete-panel
+      .p-autocomplete-items
+      .p-autocomplete-item:nth-last-child(0) {
+      border-bottom: none;
+    }
+  }
+}

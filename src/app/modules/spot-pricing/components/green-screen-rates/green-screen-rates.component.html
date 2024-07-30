@@ -1,0 +1,177 @@
+<div class="grid flex-wrap-reverse my-3 justify-content-center">
+  <div class="col-12 lg:col-5">
+    <div class="dat_screen_div">
+      <span class="rate_heading">DAT</span>
+      <div class="flex justify-content-around flex-wrap">
+        <div class="mt-2">
+            <p class="dat_avg_value mt-2">Lane Rate</p>   
+          <div>
+            <div class="target_value flex align-items-center gap-1">
+              <ng-container *ngIf="dat_average_rate; else errorContent">
+                {{ dat_average_rate | currency : "USD" : true : "1.2-2" }}
+
+                <div>
+                  <div class="flex ratePerMile">
+                    {{
+                      dat_rate_per_mile
+                        ? "(" +
+                          (dat_rate_per_mile | currency : "USD" : true : "1.2-2") +
+                          "/mi)"
+                        : ""
+                    }}
+                    <div class="reportsData">
+                      <app-tooltip
+                      [toolTipMessage]="datDetailedInfo"
+                      [tooltipPosition]="'bottom'"
+                      [isEmpty]="false"
+                      [isRates]="true"
+                      [infoSuccess]="infoSuccess"
+                    > 
+                </app-tooltip>
+                  </div>
+                  </div>
+                </div>
+                
+              </ng-container>
+              <ng-template #errorContent>
+                <div class="not-found-block-dat">
+                  <app-tooltip
+                    [toolTipMessage]="getError('dat')"
+                    [tooltipPosition]="'bottom'"
+                    [isEmpty]="true"
+                    [isRates]="true"
+                  ></app-tooltip>
+                </div>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="showLoadPositngBtn" class="datLoadsBtn mt-4">
+      <app-button
+        [type]="'button'"
+        [mainClass]="'button-underline'"
+        [label]="'View DAT Loads'"
+        [disabled]="loadingDatBtn"
+        (click)="showLoadPostings()"
+        [icon]="loadingDatBtn ? 'pi pi-spinner pi-spin' : 'pi pi-plus-circle'"
+        [iconPosition]="'left'"
+      >
+      </app-button>
+    </div>
+  </div>
+  <div class="col-12 lg:col-7">
+    <div class="green_screen_div">
+      <div class="flex justify-content-between">
+        <div class="flex gap-2 align-items-center">
+          <div class="rate_heading">Green Screens</div>
+          <div class="external-link">
+            <app-tooltip
+              [toolTipMessage]="'View rates on greenscreens'"
+              [tooltipPosition]="'bottom'"
+              [isLink]="true"
+              (clicked)="goToPage($event)"
+            ></app-tooltip>
+          </div>
+        </div>
+        <div class="flex align-items-center">
+          <span class="mileage mr-1">Mileage:</span>
+
+          <ng-container *ngIf="greenScreenMileage; else noMileageFound">
+            <span class="mileageRate">{{ greenScreenMileage }}</span>
+          </ng-container>
+          <ng-template #noMileageFound>
+            <div class="not-found-block-dat">
+              <span>-</span>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+      <div class="flex justify-content-around flex-wrap">
+        <div>
+          <p class="target_confidence mt-2">Target Buy Rate</p>
+          <div>
+            <div class="target_value flex align-items-center gap-1">
+              <ng-container *ngIf="greenScreenTargetBuyRate; else noRateFound">
+                {{
+                  greenScreenTargetBuyRate | currency : "USD" : true : "1.2-2"
+                }}
+              </ng-container>
+              <ng-template #noRateFound>
+                <div class="not-found-block">
+                  <app-tooltip
+                    [toolTipMessage]="getError('predicted')"
+                    [tooltipPosition]="'bottom'"
+                    [isEmpty]="true"
+                    [isRates]="true"
+                  ></app-tooltip>
+                </div>
+              </ng-template>
+              <span class="ratePerMile">
+                {{
+                  predictTargetRate
+                    ? "(" +
+                      (predictTargetRate | currency : "USD" : true : "1.2-2") +
+                      "/mi)"
+                    : ""
+                }}
+              </span>
+            </div>
+          </div>
+          <div class="flex flex-wrap mt-2">
+            <p class="target_confidence">Confidence Level</p>
+            <h4 class="confidence_level ml-3">
+              {{ greenScreenConfidenceLevel }}
+            </h4>
+          </div>
+        </div>
+        <!-- vertical divided border line -->
+        <div class="vertical_border"></div>
+        <div>
+          <p class="target_confidence mt-2">Network Rate</p>
+          <div>
+            <div class="target_value flex align-items-center gap-1">
+              <ng-container *ngIf="netWorkTargetBuyRate; else noNetworkRate">
+                {{ netWorkTargetBuyRate | currency : "USD" : true : "1.2-2" }}
+              </ng-container>
+              <ng-template #noNetworkRate>
+                <div class="not-found-block">
+                  <app-tooltip
+                    [toolTipMessage]="getError('network')"
+                    [tooltipPosition]="'bottom'"
+                    [isEmpty]="true"
+                    [isRates]="true"
+                  ></app-tooltip>
+                </div>
+              </ng-template>
+              <span class="ratePerMile">
+                {{
+                  netTargetRate
+                    ? "(" +
+                      (netTargetRate | currency : "USD" : true : "1.2-2") +
+                      "/mi)"
+                    : ""
+                }}
+              </span>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap align-items-center mt-2">
+            <p class="target_confidence">Confidence Level</p>
+            <h4 class="confidence_level ml-3">{{ netWorkConfidenceLevel }}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showLoadPositngTable">
+  <!-- <app-infinte-load [datload_board_response]="datload_board_response"></app-infinte-load> -->
+  <app-view-dat-loads
+    [datload_board_response]="datload_board_response"
+    [datload_query_url]="datload_query_url"
+    (onRefresh)="refreshDatloadResponse()"
+  ></app-view-dat-loads>
+</div>

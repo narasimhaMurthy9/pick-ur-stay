@@ -1,0 +1,28 @@
+
+<div [formGroup]="formGroup" class="input_dropdown_component">
+    <div *ngIf="label" class="  mb-1 pl-0">
+        <label class="labelNames"
+          >{{ label }}<sup *ngIf="requiredStar" class="requiredStar">*</sup>
+        </label>
+      </div>
+  <div>
+      <p-dropdown
+        [formControlName]="name"
+        [options]="options"
+        [showClear]="false"
+        [showClear]="showClear"
+        [filter]="filter"
+        [filterBy]="filterBy"
+        [placeholder]="placeholder"
+        [readonly]="readonly"
+        [emptyFilterMessage]="emptyFilterMessage"
+        [optionLabel]="labelName"
+        (onChange)="onChangeEvent($event)"
+      ></p-dropdown>
+    
+  </div>
+  <div [ngClass]="className" class="flex">
+    <small class="p-error-invalid">{{ error }}</small>
+    <small *ngIf="!error" class="p-error-invalid"><br /></small>
+  </div>
+</div>

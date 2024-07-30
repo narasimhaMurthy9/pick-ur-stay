@@ -1,0 +1,10 @@
+<i
+    pBadge
+    [classList]="iconName"
+    [class] = "hover ? 'icon' : whiteIcon ? 'white-icon' : ''"
+    [value]="value"
+    [ngClass]="currentClasses"
+    [badgeDisabled]="(value < 1)  ? true : disableBadge"
+    [iconPos]="iconPosition"
+    [size]="size"
+></i>
