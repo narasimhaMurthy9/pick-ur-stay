@@ -1,22 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RateSearchComponent } from './components/rate-search/rate-search.component';
-import { SpotPricingComponent } from './screens/spot-pricing/spot-pricing.component';
+import { HotelAccomodation } from './screens/hotel-accomodation/hotel-accomodation.component';
 import { AuthGuardGuard } from '../auth/services/auth-guard.guard';
 import { SeacrhAccommodationComponent } from './components/seacrh-accommodation/seacrh-accommodation.component';
 
 const routes: Routes = [
   {
     path: '',
-    component:SpotPricingComponent ,
+    component:HotelAccomodation ,
     children:[
       {
         path:'',redirectTo:'search-accomdation',pathMatch:'full'
-      },
-    
-      {
-        path:'rate-lookup',
-        component:RateSearchComponent
       },
       {
         path:'search-accomdation',
@@ -36,4 +30,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class SpotPricingRoutingModule { }
+export class HotelBookingRoutingModule { }

@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path:'index.html',
     loadChildren:()=>
-       import('../app/modules/spot-pricing/spot-pricing.module').then((m)=>m.SpotPricingModule)
+       import('./modules/hotel-booking/hotel-booking.module').then((m)=>m.HotelBookingModule)
   },
 
 ];
