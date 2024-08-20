@@ -3,27 +3,25 @@ import { RouterModule, Routes } from '@angular/router';
 import { HotelAccomodation } from './screens/hotel-accomodation/hotel-accomodation.component';
 import { AuthGuardGuard } from '../auth/services/auth-guard.guard';
 import { SeacrhAccommodationComponent } from './components/seacrh-accommodation/seacrh-accommodation.component';
+import { HotelDetailsComponent } from './components/hotel-details/hotel-details.component';
 
 const routes: Routes = [
   {
     path: '',
-    component:HotelAccomodation ,
-    children:[
+    component: HotelAccomodation, 
+    children: [
       {
-        path:'',redirectTo:'search-accomdation',pathMatch:'full'
+        path: '',
+        component: SeacrhAccommodationComponent,      
       },
       {
-        path:'search-accomdation',
-        component: SeacrhAccommodationComponent
+        path: ':id',
+        component: HotelDetailsComponent,
+        pathMatch: 'full'
       }
      
     ]
-  },
-
-
-
-
-  
+  }
 ];
 
 @NgModule({

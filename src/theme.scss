@@ -111,6 +111,37 @@
       }
     }
 
+    .button-hotel-room-book {
+      margin: 0rem 0.5rem 0rem 0.3rem;
+  
+      .p-button {
+        color: #000000;
+        background: none;
+        border: 1px solid #000000  ;
+        border-radius: 25px;
+        height: 36.5px;
+        font: 600 14px/1.5 $font-family;
+      }
+  
+      .p-button:enabled:hover,
+      .p-button:enabled:active {
+        color: #000000;
+        background:  none;
+        border: 1px solid #000000  ;
+      }
+  
+      .p-button:focus {
+        box-shadow: none;
+      }
+      @media (max-width: 1350px) {
+        .p-button {
+          color:#000000;
+          background:none;
+          order: 1px solid #000000  ;
+        }
+      }
+    }
+
     .button-hotel-login {
       margin: 0rem 0.5rem 0rem 0.3rem;
   

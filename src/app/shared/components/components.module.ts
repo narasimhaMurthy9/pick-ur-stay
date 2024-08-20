@@ -16,6 +16,7 @@ import { CalendarComponent } from './inputs/calendar/calendar.component';
 import { DropdownComponent } from './inputs/dropdown/dropdown.component';
 import { IntersectionObserverDirective } from './_directives/intersection-observer.directive';
 import { TooltipComponent } from './tooltip/tooltip.component';
+
 @NgModule({
   declarations: [
     InputTextComponent,

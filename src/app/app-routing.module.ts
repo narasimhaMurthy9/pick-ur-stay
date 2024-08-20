@@ -5,12 +5,12 @@ import { AuthGuardGuard } from './modules/auth/services/auth-guard.guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'index.html',
+    redirectTo: 'pickurstay',
     pathMatch: 'full',
   },
  
   {
-    path:'index.html',
+    path:'pickurstay',
     loadChildren:()=>
        import('./modules/hotel-booking/hotel-booking.module').then((m)=>m.HotelBookingModule)
   },

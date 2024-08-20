@@ -10,20 +10,23 @@
                     Furthermore, our location is easily accessible from the airport and major highways, making it an ideal 
                     choice for those seeking centrally located and well-connected accommodations. Come, savor a stay that 
                     promises both enjoyment and cherished memories</p>
-                    <div class="flex flex-wrap gap-5">
+                    <!-- <div class="flex flex-wrap gap-5">
                         <p><b>PHONE: 6302826454</b></p>
                         <p><b>Email: vnmurthy18@gmail.com </b></p>
-                    </div>
+                    </div> -->
                     <h3 class="addFont mt-3">Choose your Hotel</h3>  
                 </div>
     <div  class="grid">
-        <div class="col-8">
+        <div class="col-12">
                 
              
                <div class="flex flex-wrap gap-5 mt-3">
                    <div *ngFor="let hotelInfo of showHotelData;">
                        <div class="card">
-                           <img src={{hotelInfo.hotelImg}} alt="Avatar" style="width:100%" >
+                        <div>
+                            <img src={{hotelInfo.hotelImg}} alt="Avatar" style="width:100%" >
+                        </div>
+                           
                             <div class="container">
 
                                 <h3 class="m-2"><b>{{hotelInfo.hotelName}}</b></h3> 
@@ -33,27 +36,22 @@
                                     {{hotelInfo.about}}
                                 </p>
                             </div>
-                            <div class="flex flex-wrap priceBlock ">
+                            <div style="margin: 0px 35px 5px 35px;">
+                               <p> Contact Number : <b>  {{hotelInfo.contactNo}}</b></p>
+                               <p> <b>  {{hotelInfo.email}}</b></p>  
+                            </div>
+                            <!-- <div class="flex flex-wrap priceBlock ">
                                 <p>Standard Plan</p>
                                 <p>RS: {{hotelInfo.price}}</p>
-                            </div>
-                            <div class="flex flex-wrap gap-5 mt-2" style="padding: 0px 45px;">
-                                <div style="width: 150px !important;">
-                                    <app-input-text
-                                        name="NumOfRooms"
-                                        [label]="'Number of rooms'"
-                                        [formGroup]="addRoomsForm"
-                                        [placeholder]="'0'"
-                                        [type]="'number'"
-        
-                                    ></app-input-text>
-                                </div>
-                                    <div style="margin-top: 30px;">
+                            </div> -->
+                            <div class="flex flex-wrap align-items-center justify-content-center pb-3" style="padding: 0px 45px;">
+
+                                    <div>
                                         <app-button
                                         [type]="'button'"
                                         [mainClass]="'button-hotel-search'"
-                                        (click)="AddRoom(locationName,hotelInfo.id)"
-                                        [label]="'ADD'"
+                                        (click)="bookNow(hotelInfo.id)"
+                                        [label]="'Book Now'"
                                         >
                                          </app-button>
                                     </div>
@@ -62,7 +60,8 @@
                    </div>
                </div>
         </div>
-        <div class="col-4 ">
+        <!-- (click)="AddRoom(locationName,hotelInfo.id)" -->
+        <!-- <div class="col-4 ">
             <div style="position: sticky; top: 0;">
                 <div class="priceAndCheck addFont">
                     <div *ngIf="showPrice">
@@ -124,7 +123,7 @@
          
             </div>
           
-        </div>
+        </div> -->
     </div>
   
   

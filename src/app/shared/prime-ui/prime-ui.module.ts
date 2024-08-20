@@ -12,6 +12,7 @@ import { PaginatorModule } from 'primeng/paginator';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { CalendarModule } from 'primeng/calendar';
 import { TooltipModule } from 'primeng/tooltip';
+import { SplitButtonModule } from 'primeng/splitbutton';
 const primengComponents=[
   CommonModule,
   InputTextModule,
@@ -25,7 +26,8 @@ const primengComponents=[
   PaginatorModule,
   AutoCompleteModule,
   CalendarModule,
-  TooltipModule
+  TooltipModule,
+  SplitButtonModule
   
 ]
 @NgModule({

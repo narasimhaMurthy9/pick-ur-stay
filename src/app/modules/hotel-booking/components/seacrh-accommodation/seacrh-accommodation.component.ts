@@ -20,7 +20,7 @@ maxDate: Date;
     this.searchHotelsForm = this.fb.group({
       location: [null, Validators.required],
       checkIn: [null, Validators.required],
-      // NumOfGuests: [null, Validators.required],
+      NumOfGuests: [null, Validators.required],
     });
   }
 
